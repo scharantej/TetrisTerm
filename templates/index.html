@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tetris</title>
+<style>
+body {
+background-color: black;
+}
+
+#board {
+width: 100px;
+height: 200px;
+background-color: white;
+border: 1px solid black;
+}
+
+#current_tetromino {
+width: 40px;
+height: 40px;
+background-color: red;
+border: 1px solid black;
+}
+
+.score {
+color: white;
+font-size: 20px;
+position: absolute;
+top: 10px;
+left: 10px;
+}
+</style>
+</head>
+<body>
+<div id="board">
+{% for row in board %}
+<div>
+{% for cell in row %}
+{% if cell == ' ' %}
+<div style="width: 10px; height: 10px; background-color: white; border: 1px solid black;"></div>
+{% else %}
+<div style="width: 10px; height: 10px; background-color: {{ cell }}; border: 1px solid black;"></div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+</div>
+
+<div id="current_tetromino">
+{% for row in current_tetromino %}
+<div>
+{% for cell in row %}
+{% if cell == ' ' %}
+<div style="width: 10px; height: 10px; background-color: white; border: 1px solid black;"></div>
+{% else %}
+<div style="width: 10px; height: 10px; background-color: {{ cell }}; border: 1px solid black;"></div>
+{% endif %}
+{% endfor %}
+</div>
+{% endfor %}
+</div>
+
+<div class="score">
+Score: {{ score }}
+</div>
+</body>
+</html>
+
+
